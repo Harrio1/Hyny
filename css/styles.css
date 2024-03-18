@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative; 
+}
+
+header {
+    background-color: rgb(21, 185, 144);
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease; 
+    
+}
+
+.product:hover {
+    box-shadow: 0 0 10px rgba(168, 14, 14, 0.3); 
+}
+
+.product img {
+    display: block; 
+    width: 100%; 
+    height: auto; 
+}
+
+.product h2 {
+    margin-top: 0;
+}
+
+
+
+.cent {
+text-align: center;
+
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+.copy-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+footer {
+    background-color: rgb(21, 185, 144);
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+.centered-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
