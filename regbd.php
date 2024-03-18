@@ -93,7 +93,6 @@
 <form action="regbd.php" method="post" onsubmit="return validateForm()">
     <label for="Here's the modified HTML code to change the gender field from radio buttons to a dropdown block:
 
-```html
 <form action="regbd.php" method="post" onsubmit="return validateForm()">
     <label for="username">Имя пользователя:</label><br>
     <input type="text" id="username" name="username"><br>
