@@ -36,8 +36,6 @@ $user = $_SESSION['user'];
 
 
 
-
-
 <?php include "components/footer.php";?>
 
 
