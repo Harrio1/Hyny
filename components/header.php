@@ -7,6 +7,7 @@
     <title>Продуктовая витрина</title>
     <link rel="stylesheet" href="/css/buttton.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/redact.css">
 </head>
 <body>
     <header>
