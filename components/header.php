@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/buttton.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/redact.css">
+    <link rel="stylesheet" href="/css/test.css">
+
 </head>
 <body>
     <header>
