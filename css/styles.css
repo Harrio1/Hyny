@@ -31,15 +31,22 @@ header {
     
 }
 
+.product {
+    width: 300px; /* Установите желаемую ширину */
+    height: auto; /* Разрешаем высоту автоматически подстраиваться под содержимое */
+    text-align: center; /* Центрируем содержимое внутри блока */
+}
+
 .product:hover {
     box-shadow: 0 0 10px rgba(168, 14, 14, 0.3); 
 }
 
 .product img {
-    display: block; 
-    width: 100%; 
-    height: auto; 
+    width: 80%;
+    height: auto;
+    object-fit: contain; /* Масштабирование изображения без обрезки */
 }
+
 
 .product h2 {
     margin-top: 0;
@@ -75,10 +82,8 @@ footer {
     color: #fff;
     padding: 10px 20px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
 }
-
 

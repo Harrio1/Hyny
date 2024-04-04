@@ -20,8 +20,7 @@
             <p>Для заказа товра обращайтесь по этому номеру: <span id="phoneNumber" class="phoneNumber"><a class="link">+7 (907) 155-69-16</a> </span></p>
             <p>Цена: 89.99 р.</p>
         </div>
-            </div>
-            <div class="container">
+           
                 <div class="product">
                     <img src="продукты/морковь.jpg" alt="Продукт 1">
                     <h2 class="cent">Морковь</h2>
