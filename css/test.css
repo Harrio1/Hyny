@@ -28,9 +28,7 @@
     
     
       
-        footer {
-            margin-top: 20px; /* Устанавливаем отступ сверху */
-      }
+        
       
       /* Медиа-запрос для мобильных устройств на странице acc.php */
       @media only screen and (max-width: 768px) {

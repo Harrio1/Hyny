@@ -21,6 +21,6 @@ echo '<div class="centered-text">
 
 
 <footer>
-    <p class="foter">&copy; 2024 Продуктовая витрина</p>
+    <p>&copy; 2024 Продуктовая витрина</p>
 </footer>
 
