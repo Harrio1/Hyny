@@ -1,23 +1,44 @@
-@media only screen  and (max-width: 1200px) {
-   .container {
-    display: block; /* Изменяем display на block, чтобы не использовать grid в мобильной верстке */
-    grid-gap: 20px; /* настройка промежутков между элементами в grid */
-    padding: 20px;
-    justify-content: center;
-  } 
-}
+/* Общие стили */
 
-  
-  /* Медиа-запрос для мобильных устройств */
-  @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+   
     .container {
-      display: grid; /* Используем grid только в мобильной верстке */
-      grid-template-columns: repeat(1, 1fr); /* изменяем на один столбец на всю ширину */
+        display: grid;
+        grid-template-columns: repeat(1, 0.4fr);
+        grid-gap: 20px; /* настройка промежутков между элементами в grid */
+        padding: 20px;
+      }
     }
-  
-    header, footer {
-      /* Добавляем стили для header и footer под мобильные устройства */
-      padding: 10px;
-      text-align: center;
-    }
-  }
+      /* Медиа-запрос для мобильных устройств */
+      @media only screen and (max-width: 768px) {
+        .container {
+          grid-template-columns: repeat(1, 1fr); /* изменяем на один столбец на всю ширину */
+        }
+      
+        header, footer {
+          /* Добавляем стили для header и footer под мобильные устройства */
+          padding: 10%;
+          text-align: center;
+        }
+    
+    
+        
+      }
+      
+    
+    
+      
+        footer {
+            margin-top: 20px; /* Устанавливаем отступ сверху */
+      }
+      
+      /* Медиа-запрос для мобильных устройств на странице acc.php */
+      @media only screen and (max-width: 768px) {
+        footer {
+          margin-top: 40px; /* Устанавливаем больший отступ сверху для мобильных устройств */
+        }
+      }
+    
+    
+    
+    

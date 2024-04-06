@@ -14,6 +14,13 @@ echo '<div class="centered-text">
   
 </div>';
 
+
+
+
 ?>
 
-<?php include "components/footer.php"; ?>
+
+<footer>
+    <p class="foter">&copy; 2024 Продуктовая витрина</p>
+</footer>
+
