@@ -18,7 +18,7 @@
         
         <ul class="nav">
             <li><a href="vxod.php" class="account-button">Главная</a></li>
-            <li><a href="acc.php" class="account-button">Личный кабинет</a></li>
+            <li><a href="acc.php" class="account-button">Кабинет</a></li>
             <li><a href="logout.php" class="account-button">Выход</a></li>
         </ul>
         
