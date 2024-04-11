@@ -20,7 +20,5 @@ echo '<div class="centered-text">
 ?>
 
 
-<footer>
-    <p>&copy; 2024 Продуктовая витрина</p>
-</footer>
+
 
