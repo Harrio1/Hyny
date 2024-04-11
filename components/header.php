@@ -1,4 +1,4 @@
-<?php include "components/check_auth.php";?>
+<?php include "check_auth.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +17,9 @@
         <h1>Смачный Смех</h1> 
         
         <ul class="nav">
-            <li><a href="vxod.php" class="account-button">Главная</a></li>
-            <li><a href="acc.php" class="account-button">Кабинет</a></li>
-            <li><a href="logout.php" class="account-button">Выход</a></li>
+            <li><a href="../vxod.php" class="account-button">Главная</a></li>
+            <li><a href="/accaunt/acc.php" class="account-button">Кабинет</a></li>
+            <li><a href="/accaunt/logout.php" class="account-button">Выход</a></li>
         </ul>
         
 

@@ -1,6 +1,6 @@
 <?php  
-  include "components/header.php";
-  include "components/connectdb.php";
+  include "../components/header.php";
+  include "../components/connectdb.php";
 
   // Получаем данные текущего пользователя
   $user = $_SESSION['user'];
@@ -39,4 +39,4 @@
 </form>';
 
 ?>
-<?php include "components/footer.php";?>
+<?php include "../components/footer.php";?>
