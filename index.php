@@ -11,7 +11,7 @@
 <body>
     <header>
         <h1>Смачный Смех</h1>  
-        <a href="login.php" class="account-button">Войти</a>
+        <a href="../accaunt/login.php" class="account-button">Войти</a>
         <div id="copyNotification" class="copy-notification"></div>
     </header>
 

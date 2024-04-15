@@ -27,7 +27,7 @@
 </script>
 </head>
 <body>
-    <h1>Add New Product</h1>
+    <h1>Добавление нового продукта</h1>
     <form action="add_product_process.php" method="POST" enctype="multipart/form-data">
         <label for="name">Наиминование продукта:</label><br>
         <input type="text" id="name" name="name" required><br>

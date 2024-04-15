@@ -15,23 +15,43 @@ if ($conn->connect_error) {
 // Получение данных из формы
 $name = $_POST['name'];
 $description = $_POST['description'];
-$image = $_FILES['image']['name'];
 $price = $_POST['price'];
 $phone = $_POST['phone'];
 
-// Загрузка файла изображения
-$target_dir = "продукты/";
-$target_file = $target_dir . basename($_FILES["image"]["name"]);
-move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+// Получение имени загружаемого файла и генерация уникального имени
+$target_dir = "../продукты/";
+$imageName = uniqid() . '_' . basename($_FILES["image"]["name"]);
+$target_file = $target_dir . $imageName;
 
-// SQL-запрос для добавления нового продукта в таблицу
-$sql = "INSERT INTO product (name, description, image, price, phone)
-VALUES ('$name', '$description', '$target_file', $price, '$phone')";
+// Разрешенные типы файлов
+$allowed_types = array('image/jpeg', 'image/png', 'image/gif');
 
-if ($conn->query($sql) === TRUE) {
-    echo "New product added successfully";
+// Получение типа загруженного файла
+$file_type = $_FILES["image"]["type"];
+
+// Проверка разрешенных типов файлов
+if (in_array($file_type, $allowed_types)) {
+    // Перемещение файла в целевую директорию
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+        // SQL-запрос для добавления нового продукта в таблицу
+        $sql = "INSERT INTO product (name, description, image, price, phone)
+        VALUES ('$name', '$description', '$target_file', $price, '$phone')";
+
+        if ($conn->query($sql) === TRUE) {
+            // Перенаправление на страницу vxod.php после успешного добавления
+            header("Location: ../vxod.php");
+            exit(); // Обязательно завершаем скрипт после перенаправления
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    } else {
+        echo "Error: Failed to move uploaded file.";
+    }
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: Only JPEG, PNG, and GIF files are allowed.";
 }
 
 $conn->close();
