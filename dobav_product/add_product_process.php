@@ -41,6 +41,15 @@ if (in_array($file_type, $allowed_types)) {
         VALUES ('$name', '$description', '$target_file', $price, '$phone')";
 
         if ($conn->query($sql) === TRUE) {
+            // Создаем отдельный div с классом product
+            echo '<div class="product">';
+            echo '<h2>' . $name . '</h2>';
+            echo '<p>' . $description . '</p>';
+            echo '<img src="' . $target_file . '" alt="' . $name . '">';
+            echo '<p>Цена: ' . $price . ' р.</p>';
+            echo '<p>Телефон: <input type="text" value="' . $phone . '" readonly> <button onclick="copyPhone()">Копировать</button> <button onclick="deleteProduct()">Удалить</button></p>';
+            echo '</div>';
+
             // Перенаправление на страницу vxod.php после успешного добавления
             header("Location: ../vxod.php");
             exit(); // Обязательно завершаем скрипт после перенаправления
@@ -55,4 +64,24 @@ if (in_array($file_type, $allowed_types)) {
 }
 
 $conn->close();
+
+// JavaScript функция для копирования номера телефона
+echo '<script>';
+echo 'function copyPhone() {';
+echo 'var phoneInput = document.querySelector("input[type=text]");';
+echo 'phoneInput.select();';
+echo 'document.execCommand("copy");';
+echo 'alert("Номер телефона скопирован!");';
+echo '}';
+echo '</script>';
+
+// JavaScript функция для удаления продукта
+echo '<script>';
+echo 'function deleteProduct() {';
+echo 'if (confirm("Вы уверены, что хотите удалить продукт?")) {';
+echo 'var productDiv = document.querySelector(".product");';
+echo 'productDiv.parentNode.removeChild(productDiv);'; // Удаляем элемент из DOM
+echo '}';
+echo '}';
+echo '</script>';
 ?>
