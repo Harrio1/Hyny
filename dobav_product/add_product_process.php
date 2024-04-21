@@ -42,7 +42,7 @@ if (in_array($file_type, $allowed_types)) {
 
         if ($conn->query($sql) === TRUE) {
             // Создаем отдельный div с классом product
-            echo '<div class="container" style="display: inline-block;">';
+            echo '<div class="container" style="display: inline-block; width: 240px;">';
             echo '<div class="product">';
             echo '<h2>' . $name . '</h2>';
             echo '<p>' . $description . '</p>';
