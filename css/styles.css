@@ -17,7 +17,7 @@ header {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
-    display: grid;
+    display: inline-block;
     grid-template-columns: repeat(3, 1fr); /* Создаем три равные колонки */
     gap: 20px; /* Отступ между колонками */
     flex-wrap: wrap;
@@ -91,7 +91,6 @@ footer{
     color: #fff;
     padding: 10px 20px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
