@@ -1,52 +1,74 @@
-<?php
-session_start();
-
-// Проверка, был ли пользователь уже аутентифицирован
-if(isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header("Location: vxod.php");
-    exit;
-}
-
-// Проверка, были ли введены учетные данные
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Проверяем введенные учетные данные (вам нужно заменить это на проверку с базой данных)
-    $admin_username = "admin"; // Замените это на имя пользователя администратора из вашей базы данных
-    $admin_password = "admin123"; // Замените это на пароль администратора из вашей базы данных
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if($username === $admin_username && $password === $admin_password) {
-        // Если учетные данные верны, устанавливаем флаг аутентификации для администратора
-        $_SESSION['admin_logged_in'] = true;
-        header("Location: vxod.php");
-        exit;
-    } else {
-        $error = "Неверное имя пользователя или пароль";
-    }
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход для администратора</title>
+  <meta charset="UTF-8">
+  <title>Вход</title>
+  <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
-    <h2>Вход для администратора</h2>
-    <form method="post">
-        <div>
-            <label for="username">Имя пользователя:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Войти</button>
-    </form>
-    <?php if(isset($error)) { echo "<p>$error</p>"; } ?>
+
+  <h1>Вход</h1>
+
+  <?php
+
+// Подключение к БД
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ku";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Проверка подключения
+if (!$conn) {
+  die("Ошибка: " . mysqli_connect_error());
+}
+
+// Обработка формы
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  // Получаем данные
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  // Проверка на email
+  if(filter_var($username, FILTER_VALIDATE_EMAIL)) {
+    // Поиск по email
+    $sql = "SELECT * FROM users WHERE email = '$username'"; 
+  } else {
+    // Поиск по username
+    $sql = "SELECT * FROM users WHERE username = '$username'";
+  }
+  
+  $result = mysqli_query($conn, $sql);
+
+  if ($result && mysqli_num_rows($result) == 1) {
+    $row = mysqli_fetch_assoc($result);
+    $hashed_password = $row['password'];
+    if (password_verify($password, $hashed_password)) {
+      // Стартуем сессию и сохраняем пользователя в сессии
+      session_start();
+      $_SESSION['user'] = $row;
+      header("Location: ../vxod.php"); 
+      exit();
+    } else {
+      echo "<p>Неверный логин или пароль.</p>";
+    }
+  } else {
+    echo "<p>Неверный логин или пароль.</p>";
+  }
+}
+
+?>
+  <form method="post">
+    <label>Логин:</label><br>
+    <input type="text" name="username"><br>
+
+    <label>Пароль:</label><br>
+    <input type="password" name="password"><br><br>
+
+    <input type="submit" value="Войти">
+  </form>
+  <p class="p1"> Нет аккаунт? <a href="regbd.php" >Нажмите сюда</a></p>
 </body>
 </html>
