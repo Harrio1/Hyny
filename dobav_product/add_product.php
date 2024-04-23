@@ -75,7 +75,8 @@ $result = $conn->query($sql);
 
     <div id="copyNotification" class="copy-notification"></div>
     
-
+   
+    <a href="../vxod.php" class="account-button" style="margin-top: 20px;">Выход</a>
 <?php
 $conn->close();
 ?>
