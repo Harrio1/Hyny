@@ -6,6 +6,7 @@
     <title>Add Product</title>
     
     <link rel="stylesheet" href="/css/do.css">
+    <link rel="stylesheet" href="/css/acc.css">
     <script>
     function formatPhoneNumber(input) 
         var phoneNumber = input.value.replace(/\D/g, ''); // Удаляем все символы, кроме цифр
@@ -59,7 +60,7 @@ $result = $conn->query($sql);
         <input type="text" id="price" name="price" required><br>
         <label for="phone">Номер телефона:</label><br>
         <input type="text" id="phone" name="phone" maxlength="16" oninput="formatPhoneNumber(this)"><br>
-        <button class="account-button" type="submit">Добавить продукт</button>
+        <button class="button" type="submit">Добавить продукт</button>
     </form>
 
     <div class="products-container">
