@@ -76,7 +76,7 @@
                     
                     if ($conn->query($sql) === TRUE) {
                         // Редирект на страницу входа после успешной регистрации
-                        header("Location: login.php");
+                        header("Location: ../accaunt/login.php");
                         exit();
                     } else {
                         echo "Ошибка: " . $sql . "<br>" . $conn->error;
@@ -112,4 +112,4 @@
     <!-- Кнопка отправки формы -->
     <input type="submit" value="Зарегистрироваться">
 </form>
-<p class="p1"> есть аккаунт? <a href="login.php" >Нажмите сюда</a></p>
+<p class="p1"> есть аккаунт? <a href="../accaunt/login.php" >Нажмите сюда</a></p>

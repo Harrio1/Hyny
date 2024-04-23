@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/redact.css">
     <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" href="/css/normalize.css">
 
 </head>
 <body>

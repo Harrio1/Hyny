@@ -69,6 +69,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <input type="submit" value="Войти">
   </form>
-  <p class="p1"> Нет аккаунт? <a href="regbd.php" >Нажмите сюда</a></p>
+  <p class="p1"> Нет аккаунт? <a href="../regbd.php" >Нажмите сюда</a></p>
 </body>
 </html>
