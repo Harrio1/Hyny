@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Подключение к базе данных
 $servername = "localhost";
 $username = "root";
@@ -45,7 +47,7 @@ if (in_array($file_type, $allowed_types)) {
             echo '<div class="container" style="display: inline-block; width: 240px;">';
             echo '<div class="product">';
             echo '<h2>' . $name . '</h2>';
-            echo '<p>' . $description . '</p>';
+            echo '<p class="description">' . $description . '</p>';
             echo '<img src="' . $target_file . '" alt="' . $name . '">';
             echo '<p>Цена: ' . $price . ' р.</p>';
             echo '<p>Телефон: <input type="text" value="' . $phone . '" readonly> <button onclick="copyPhone()">Копировать</button> <button onclick="deleteProduct()">Удалить</button></p>';
