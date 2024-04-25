@@ -1,5 +1,4 @@
-<?php
-?>
+
 <?php include "components/header.php"; ?>
 
 <?php include 'dobav_product/display_product.php'; ?>

@@ -47,7 +47,12 @@ if (in_array($file_type, $allowed_types)) {
             echo '<div class="container" style="display: inline-block; width: 240px;">';
             echo '<div class="product">';
             echo '<h2>' . $name . '</h2>';
-            echo '<p class="description">' . $description . '</p>';
+            if (strlen($row['description']) > 100) {
+                $truncated_description = substr($row['description'], 0, 100);
+                echo '<p class="description">' . $truncated_description . '<br><span style="color: red;">Превышен лимит символов</span></p>';
+            } else {
+                echo '<p class="description">' . $row['description'] . '</p>';
+            }
             echo '<img src="' . $target_file . '" alt="' . $name . '">';
             echo '<p>Цена: ' . $price . ' р.</p>';
             echo '<p>Телефон: <input type="text" value="' . $phone . '" readonly> <button onclick="copyPhone()">Копировать</button> <button onclick="deleteProduct()">Удалить</button></p>';
