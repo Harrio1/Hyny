@@ -33,7 +33,23 @@
     ?>
 
     <div class="products-container">
-        <!-- Здесь вывод продуктов, если нужно -->
+        <?php
+        // Вывод продуктов на странице
+        while ($row = $result->fetch_assoc()) {
+            echo '<div class="product" id="product_' . $row['id'] . '">';
+            // Вывод информации о продукте
+            echo '<h2>' . $row['name'] . '</h2>';
+            echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
+            echo '<p>Цена: ' . $row['price'] . ' р.</p>';
+            // Вывод описания продукта
+            echo '<p class="description">' . $row['description'] . '</p>';
+            // Проверяем роль пользователя перед отображением кнопки удаления
+            if ($_SESSION['user']['role'] === 'admin') {
+                echo '<p><button onclick="deleteProduct(' . $row['id'] . ')" class="button">Удалить продукт</button></p>';
+            }
+            echo '</div>';
+        }
+        ?>
     </div>
 
     <div id="copyNotification" class="copy-notification"></div>
