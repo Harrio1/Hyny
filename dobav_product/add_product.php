@@ -6,7 +6,15 @@
     <title>Add Product</title>
     
     <link rel="stylesheet" href="/css/do.css">
-    <link rel="stylesheet" href="/css/acc.css">
+    <script>
+    function formatPhoneNumber(input) {
+        var phoneNumber = input.value.replace(/\D/g, ''); // Удаляем все символы, кроме цифр
+        var maxLength = 11; // Ограничиваем длину номера телефона
+        phoneNumber = phoneNumber.slice(0, maxLength);
+        var formattedPhoneNumber = phoneNumber.replace(/(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3-$4-$5'); // Добавляем пробелы или другой форматированный вид номера телефона, если необходимо
+        input.value = formattedPhoneNumber; // Устанавливаем отформатированный номер обратно в поле ввода
+    }
+    </script>
 </head>
 <body>
     <h1>Добавление нового продукта</h1>
@@ -24,36 +32,8 @@
         <button class="button" type="submit">Добавить продукт</button>
     </form>
 
-    <!-- Вывод ошибки о превышении лимита символов -->
-    <?php
-    if (isset($_SESSION['description_error'])) {
-        echo '<p style="color: red;">' . $_SESSION['description_error'] . '</p>';
-        unset($_SESSION['description_error']); // Очищаем переменную с ошибкой после отображения
-    }
-    ?>
-
-    <div class="products-container">
-        <?php
-        // Вывод продуктов на странице
-        while ($row = $result->fetch_assoc()) {
-            echo '<div class="product" id="product_' . $row['id'] . '">';
-            // Вывод информации о продукте
-            echo '<h2>' . $row['name'] . '</h2>';
-            echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
-            echo '<p>Цена: ' . $row['price'] . ' р.</p>';
-            // Вывод описания продукта
-            echo '<p class="description">' . $row['description'] . '</p>';
-            // Проверяем роль пользователя перед отображением кнопки удаления
-            if ($_SESSION['user']['role'] === 'admin') {
-                echo '<p><button onclick="deleteProduct(' . $row['id'] . ')" class="button">Удалить продукт</button></p>';
-            }
-            echo '</div>';
-        }
-        ?>
-    </div>
-
     <div id="copyNotification" class="copy-notification"></div>
     
-    <a href="../vxod.php" class="accounta-button" style="margin-top: 20px;">Выход</a>
+    <a href="../vxod.php" class="account-button" style="margin-top: 20px;">Выход</a>
 </body>
 </html>
