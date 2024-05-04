@@ -6,6 +6,7 @@
     <title>Add Product</title>
     
     <link rel="stylesheet" href="/css/do.css">
+    <link rel="stylesheet" href="/css/acc.css">
     <script>
     function formatPhoneNumber(input) {
         var phoneNumber = input.value.replace(/\D/g, ''); // Удаляем все символы, кроме цифр
@@ -34,6 +35,6 @@
 
     <div id="copyNotification" class="copy-notification"></div>
     
-    <a href="../vxod.php" class="account-button" style="margin-top: 20px;">Выход</a>
+    <a href="../vxod.php" class="accounta-button" style="margin-top: 20px;">Выход</a>
 </body>
 </html>
