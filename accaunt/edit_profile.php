@@ -39,4 +39,4 @@
 </form>';
 
 ?>
-<?php include "../components/footer.php";?>
+
