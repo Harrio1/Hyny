@@ -113,3 +113,5 @@
     <input type="submit" value="Зарегистрироваться">
 </form>
 <p class="p1"> есть аккаунт? <a href="../accaunt/login.php" >Нажмите сюда</a></p>
+</body>
+</html>
